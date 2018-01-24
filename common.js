@@ -21713,6 +21713,7 @@ Table.propTypes = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___de
   footer: __WEBPACK_IMPORTED_MODULE_5_prop_types___default.a.func,
   emptyText: __WEBPACK_IMPORTED_MODULE_5_prop_types___default.a.oneOfType([__WEBPACK_IMPORTED_MODULE_5_prop_types___default.a.node, __WEBPACK_IMPORTED_MODULE_5_prop_types___default.a.func]),
   scroll: __WEBPACK_IMPORTED_MODULE_5_prop_types___default.a.object,
+  fixScrollY: __WEBPACK_IMPORTED_MODULE_5_prop_types___default.a.bool,
   rowRef: __WEBPACK_IMPORTED_MODULE_5_prop_types___default.a.func,
   getBodyWrapper: __WEBPACK_IMPORTED_MODULE_5_prop_types___default.a.func,
   children: __WEBPACK_IMPORTED_MODULE_5_prop_types___default.a.node,
@@ -21749,6 +21750,7 @@ Table.defaultProps = {
   style: {},
   showHeader: true,
   scroll: {},
+  fixScrollY: false,
   rowRef: function rowRef() {
     return null;
   },
@@ -27089,7 +27091,8 @@ function BodyTable(props, _ref) {
   var table = _ref.table;
   var _table$props = table.props,
       prefixCls = _table$props.prefixCls,
-      scroll = _table$props.scroll;
+      scroll = _table$props.scroll,
+      fixScrollY = _table$props.fixScrollY;
   var columns = props.columns,
       fixed = props.fixed,
       tableClassName = props.tableClassName,
@@ -27113,11 +27116,20 @@ function BodyTable(props, _ref) {
     // maxHeight will make fixed-Table scrolling not working
     // so we only set maxHeight to body-Table here
     if (fixed) {
-      innerBodyStyle.height = bodyStyle.height || scroll.y;
+      if (fixScrollY) {
+        innerBodyStyle.height = bodyStyle.height || scroll.y;
+      } else {
+        innerBodyStyle.maxHeight = bodyStyle.maxHeight || scroll.y;
+      }
+
       // innerBodyStyle.maxHeight = bodyStyle.maxHeight || scroll.y;
       innerBodyStyle.overflowY = bodyStyle.overflowY || 'scroll';
     } else {
-      bodyStyle.height = bodyStyle.height || scroll.y;
+      if (fixScrollY) {
+        bodyStyle.height = bodyStyle.height || scroll.y;
+      } else {
+        bodyStyle.maxHeight = bodyStyle.maxHeight || scroll.y;
+      }
       // bodyStyle.maxHeight = bodyStyle.maxHeight || scroll.y;
     }
     bodyStyle.overflowY = bodyStyle.overflowY || 'scroll';
