@@ -4,7 +4,7 @@ import { measureScrollbar } from './utils';
 import BaseTable from './BaseTable';
 
 export default function BodyTable(props, { table }) {
-  const { prefixCls, scroll } = table.props;
+  const { prefixCls, scroll, fixScrollY } = table.props;
   const { columns, fixed, tableClassName, getRowKey, handleBodyScroll, expander } = props;
   const { saveRef } = table;
   let { useFixedHeader } = table.props;
@@ -22,10 +22,21 @@ export default function BodyTable(props, { table }) {
     // maxHeight will make fixed-Table scrolling not working
     // so we only set maxHeight to body-Table here
     if (fixed) {
-      innerBodyStyle.maxHeight = bodyStyle.maxHeight || scroll.y;
+      if (fixScrollY) {
+        innerBodyStyle.height = bodyStyle.height || scroll.y;
+      } else {
+        innerBodyStyle.maxHeight = bodyStyle.maxHeight || scroll.y;
+      }
+
+      // innerBodyStyle.maxHeight = bodyStyle.maxHeight || scroll.y;
       innerBodyStyle.overflowY = bodyStyle.overflowY || 'scroll';
     } else {
-      bodyStyle.maxHeight = bodyStyle.maxHeight || scroll.y;
+      if (fixScrollY) {
+        bodyStyle.height = bodyStyle.height || scroll.y;
+      } else {
+        bodyStyle.maxHeight = bodyStyle.maxHeight || scroll.y;
+      }
+      // bodyStyle.maxHeight = bodyStyle.maxHeight || scroll.y;
     }
     bodyStyle.overflowY = bodyStyle.overflowY || 'scroll';
     useFixedHeader = true;

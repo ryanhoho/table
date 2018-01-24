@@ -120,6 +120,11 @@ describe('Table', () => {
       expect(wrapper).toMatchSnapshot();
     });
 
+    it('renders scroll.x is a number & fix scroll.y', () => {
+      const wrapper = render(createTable({ scroll: { y: 200 }, fixScrollY: true }));
+      expect(wrapper).toMatchSnapshot();
+    });
+
     it('fire scroll event', () => {
       const newColumns = [
         { title: 'title1', dataIndex: 'a', key: 'a', width: 100, fixed: 'left' },

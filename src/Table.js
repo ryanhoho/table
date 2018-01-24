@@ -34,6 +34,7 @@ export default class Table extends React.Component {
     footer: PropTypes.func,
     emptyText: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
     scroll: PropTypes.object,
+    fixScrollY: PropTypes.bool,
     rowRef: PropTypes.func,
     getBodyWrapper: PropTypes.func,
     children: PropTypes.node,
@@ -70,6 +71,7 @@ export default class Table extends React.Component {
     style: {},
     showHeader: true,
     scroll: {},
+    fixScrollY: false,
     rowRef: () => null,
     emptyText: () => 'No Data',
   }
