@@ -10,8 +10,12 @@ const columns = [
   { title: 'title3', dataIndex: 'c', key: 'c' },
   { title: 'title4', dataIndex: 'b', key: 'd' },
   { title: 'title5', dataIndex: 'b', key: 'e' },
-  { title: 'title6', dataIndex: 'b', key: 'f',
-    render: () => <div style={{ height: '40px', lineHeight: '40px' }}>我很高</div> },
+  {
+    title: 'title6',
+    dataIndex: 'b',
+    key: 'f',
+    render: () => <div style={{ height: '40px', lineHeight: '40px' }}>我很高</div>,
+  },
   { title: 'title7', dataIndex: 'b', key: 'g' },
   { title: 'title8', dataIndex: 'b', key: 'h' },
   { title: 'title9', dataIndex: 'b', key: 'i' },
@@ -41,6 +45,12 @@ ReactDOM.render(
       expandIconAsCell
       scroll={{ x: 1200 }}
       data={data}
+      onRow={(record, index) => {
+        return {
+          className: `customize-class-${index}`,
+        };
+      }}
     />
-  </div>
-, document.getElementById('__react-content'));
+  </div>,
+  document.getElementById('__react-content'),
+);

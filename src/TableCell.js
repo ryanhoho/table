@@ -1,6 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash.get';
+import get from 'lodash/get';
+
+function isInvalidRenderCellText(text) {
+  return (
+    text &&
+    !React.isValidElement(text) &&
+    Object.prototype.toString.call(text) === '[object Object]'
+  );
+}
 
 export default class TableCell extends React.Component {
   static propTypes = {
@@ -12,19 +20,17 @@ export default class TableCell extends React.Component {
     column: PropTypes.object,
     expandIcon: PropTypes.node,
     component: PropTypes.any,
-  }
+  };
 
-  isInvalidRenderCellText(text) {
-    return text && !React.isValidElement(text) &&
-      Object.prototype.toString.call(text) === '[object Object]';
-  }
-
-  handleClick = (e) => {
-    const { record, column: { onCellClick } } = this.props;
+  handleClick = e => {
+    const {
+      record,
+      column: { onCellClick },
+    } = this.props;
     if (onCellClick) {
       onCellClick(record, e);
     }
-  }
+  };
 
   render() {
     const {
@@ -55,7 +61,7 @@ export default class TableCell extends React.Component {
 
     if (render) {
       text = render(text, record, index);
-      if (this.isInvalidRenderCellText(text)) {
+      if (isInvalidRenderCellText(text)) {
         tdProps = text.props || tdProps;
         colSpan = tdProps.colSpan;
         rowSpan = tdProps.rowSpan;
@@ -68,7 +74,7 @@ export default class TableCell extends React.Component {
     }
 
     // Fix https://github.com/ant-design/ant-design/issues/1202
-    if (this.isInvalidRenderCellText(text)) {
+    if (isInvalidRenderCellText(text)) {
       text = null;
     }
 
@@ -84,15 +90,11 @@ export default class TableCell extends React.Component {
     }
 
     if (column.align) {
-      tdProps.style = { textAlign: column.align };
+      tdProps.style = { ...tdProps.style, textAlign: column.align };
     }
 
     return (
-      <BodyCell
-        className={className}
-        onClick={this.handleClick}
-        {...tdProps}
-      >
+      <BodyCell className={className} onClick={this.handleClick} {...tdProps}>
         {indentText}
         {expandIcon}
         {text}
