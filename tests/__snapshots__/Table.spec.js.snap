@@ -1584,7 +1584,8 @@ exports[`Table scroll renders scroll.x is a number & fix scroll.y 1`] = `
             class="rc-table-tbody"
           >
             <tr
-              class="rc-table-row  rc-table-row-level-0"
+              class="rc-table-row rc-table-row-level-0"
+              data-row-key="key0"
             >
               <td
                 class=""
@@ -1597,7 +1598,8 @@ exports[`Table scroll renders scroll.x is a number & fix scroll.y 1`] = `
               </td>
             </tr>
             <tr
-              class="rc-table-row  rc-table-row-level-0"
+              class="rc-table-row rc-table-row-level-0"
+              data-row-key="key1"
             >
               <td
                 class=""
@@ -1629,7 +1631,7 @@ exports[`Table scroll renders scroll.x is a number 1`] = `
     >
       <div
         class="rc-table-body"
-        style="overflow-x:scroll;-webkit-transform:translate3d (0, 0, 0)"
+        style="overflow-x:auto;-webkit-transform:translate3d (0, 0, 0)"
       >
         <table
           class="rc-table-fixed"
@@ -1700,7 +1702,7 @@ exports[`Table scroll renders scroll.x is true 1`] = `
     >
       <div
         class="rc-table-body"
-        style="overflow-x:scroll;-webkit-transform:translate3d (0, 0, 0)"
+        style="overflow-x:auto;-webkit-transform:translate3d (0, 0, 0)"
       >
         <table
           class="rc-table-fixed"
