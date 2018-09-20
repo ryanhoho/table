@@ -1,14 +1,14 @@
 webpackJsonp([8],{
 
-/***/ 435:
+/***/ 653:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(436);
+module.exports = __webpack_require__(654);
 
 
 /***/ }),
 
-/***/ 436:
+/***/ 654:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -27,7 +27,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 var columns = [{ title: 'title1', dataIndex: 'a', key: 'a', width: 100 }, { id: '123', title: 'title2', dataIndex: 'b', key: 'b', width: 100 }, { title: 'title3', dataIndex: 'c', key: 'c', width: 200 }, {
-  title: 'Operations', dataIndex: '', key: 'd', render: function render() {
+  title: 'Operations',
+  dataIndex: '',
+  key: 'd',
+  render: function render() {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'a',
       { href: '#' },
@@ -51,5 +54,5 @@ __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODU
 
 /***/ })
 
-},[435]);
+},[653]);
 //# sourceMappingURL=simple.js.map

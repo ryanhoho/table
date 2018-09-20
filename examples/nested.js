@@ -1,14 +1,14 @@
 webpackJsonp([14],{
 
-/***/ 306:
+/***/ 449:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(307);
+module.exports = __webpack_require__(450);
 
 
 /***/ }),
 
-/***/ 307:
+/***/ 450:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -58,14 +58,10 @@ __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODU
     null,
     'Nested data table'
   ),
-  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_rc_table__["a" /* default */], {
-    columns: columns,
-    data: data,
-    className: 'table'
-  })
+  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_rc_table__["a" /* default */], { columns: columns, data: data, className: 'table' })
 ), document.getElementById('__react-content'));
 
 /***/ })
 
-},[306]);
+},[449]);
 //# sourceMappingURL=nested.js.map
